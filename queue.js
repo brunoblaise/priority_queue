@@ -57,6 +57,6 @@ pQ.enqueue('log', 1);
 
 pQ.dequeue();
 
-console.log(pQ.peek());
-console.log(pQ.rear());
+console.log('front of the array', pQ.peek());
+console.log('last element', pQ.rear());
 pQ.print;
