@@ -9,23 +9,22 @@ class PriorityQueue {
   constructor() {
     this.collection = [];
   }
+          enqueue(element, priority) {
+            const queue = new Elements(element, priority);
 
-  enqueue(element, priority) {
-    const queue = new Elements(element, priority);
+            let contain = false;
 
-    let contain = false;
+            for (let i = 0; i < this.collection.length; i++) {
+              if (this.collection[i].priority < queue.priority) {
+                this.collection.splice(i, 0, queue);
+                contain = true;
 
-    for (let i = 0; i < this.collection.length; i++) {
-      if (this.collection[i].priority < queue.priority) {
-        this.collection.splice(i, 0, queue);
-        contain = true;
+                break;
+              }
+            }
 
-        break;
-      }
-    }
-
-    if (!contain) {
-      this.collection.push(queue);
+            if (!contain) {
+              this.collection.push(queue);
     }
   }
 
